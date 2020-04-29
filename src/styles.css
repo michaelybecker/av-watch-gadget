@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'digital-7';
+	src: url('./fonts/digital-7\ \(mono\).ttf')
+}
+body, html
+{
+	background-color: transparent;
+}
+
+.Watch
+{
+	font-family: 'digital-7', monospace;
+	font-size: 2.8rem;
+	color: #4Af626;
+	margin-top: 47%;
+	margin-left:48%;
+	max-width: 1.5rem;
+	text-align: lect;
+}
