@@ -30,7 +30,8 @@ module.exports =
 						[
 							{ from: './src/styles.css', to: 'styles.css' },
 							{ from: './src/manifest.webmanifest', to: 'manifest.webmanifest' },
-							{ from: './src/models/placeholder.glb', to: 'models/placeholder.glb' },
+							{ from: './src/models/', to: 'models/' },
+							{ from: './src/fonts/', to: 'fonts/' }
 						]
 					),
 				],

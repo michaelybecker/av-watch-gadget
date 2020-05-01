@@ -4,9 +4,7 @@ import * as ReactDOM from 'react-dom';
 import bind from 'bind-decorator';
 
 import {
-	AvGadget, AvTransform, AvPanel, AvGrabbable,
-	HighlightType, GrabResponse, AvSphereHandle, AvTransformControl,
-	AvPanelAnchor, AvModel
+	AvGadget, AvTransform, AvPanel, AvGrabbable, AvStandardGrabbable
 } from '@aardvarkxr/aardvark-react';
 import {
 	EndpointAddr, AvGrabEvent,
@@ -37,7 +35,8 @@ class WatchGadget extends React.Component<{}, WatchState> {
 		setInterval(this.getTime, 1000);
 	}
 
-	@bind public getTime() {
+	@bind
+	private getTime() {
 		switch (this.state.watchDisplayTypeInstance) {
 
 			case watchDisplayType.Time:
@@ -53,8 +52,8 @@ class WatchGadget extends React.Component<{}, WatchState> {
 		}
 	}
 
-	@bind public changeDisplay() {
-
+	@bind
+	public changeDisplay() {
 		this.state.watchDisplayTypeInstance == watchDisplayType.Date ?
 			this.setState({ watchDisplayTypeInstance: watchDisplayType.Time }) :
 			this.setState({ watchDisplayTypeInstance: watchDisplayType.Date });
@@ -66,29 +65,24 @@ class WatchGadget extends React.Component<{}, WatchState> {
 		return (
 			<div >
 				<div>
-					<AvGrabbable dropOnHooks={true}>
-						<AvSphereHandle radius={0.1} />
+					<AvStandardGrabbable modelUri={"./models/watch.glb"} modelScale={0.03}>
+
 						<AvTransform
+							translateX={-0.012}
+							translateY={0.056}
+							translateZ={0.00375}
 							uniformScale={0.2}>
+
 							<AvPanel interactive={true} >
 								<div className="Watch"
 									onMouseDown={this.changeDisplay}>
 									{this.state.watchDisplay}
 								</div>
-								<AvTransform translateX={.063}
-									translateY={-.28}
-									translateZ={-.023}>
-									<AvModel uri="./models/watch.glb"
-										scaleToFit={{
-											x: 0.35,
-											y: 0.35,
-											z: 0.35
-										}} />
-								</AvTransform>
+
 							</AvPanel>
 						</AvTransform>
-					</AvGrabbable>
-				</div>
+					</AvStandardGrabbable>
+				</div >
 			</div >
 		)
 	}
