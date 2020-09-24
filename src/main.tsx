@@ -1,5 +1,5 @@
 import { AvPanel, AvStandardGrabbable, AvTransform, DefaultLanding } from '@aardvarkxr/aardvark-react';
-import { Av, g_builtinModelBox } from '@aardvarkxr/aardvark-shared';
+import { Av } from '@aardvarkxr/aardvark-shared';
 import bind from 'bind-decorator';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -61,13 +61,13 @@ class WatchGadget extends React.Component< {}, WatchState >
 	{
 		return (
 			<div>
-			<AvStandardGrabbable modelUri={"./models/watch.glb"} modelScale={0.03}>
+			<AvStandardGrabbable modelUri={"./models/watch.glb"} modelScale={0.03} remoteInterfaceLocks={[]}>
 			  <AvTransform
 				translateX={-0.012}
-				translateY={0.056}
+				translateY={0.063}
 				translateZ={0.00375}
 				rotateX={-90}
-				uniformScale={0.2}
+        uniformScale={0.2}
 			  >
 				<AvPanel widthInMeters={1.23} interactive={true}>
 				  <div className="watch" onMouseDown={this.changeDisplay}>
